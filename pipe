@@ -1,0 +1,10 @@
+Tool = 'Pipe' -- Options: Knife, Pipe, Punch, replace "Pipe" with option
+A = game.Players.LocalPlayer:WaitForChild 'Backpack'[string.gsub(Tool, '^%l', string.upper)]
+T = game.Players.LocalPlayer:WaitForChild 'Backpack':WaitForChild 'ServerTraits'.Touch
+
+game:GetService 'RunService'.Stepped:Connect(
+   function()
+       game.Players.LocalPlayer.Character:WaitForChild 'Stam'.Value = 99e9
+       T:FireServer(A, A, true)
+   end
+)
